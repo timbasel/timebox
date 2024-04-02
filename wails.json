@@ -1,0 +1,14 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "Timebox",
+  "outputfilename": "timebox",
+  "frontend:install": "yarn",
+  "frontend:build": "yarn run build",
+  "frontend:dev:watcher": "yarn run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Tim Basel",
+    "email": "tim@basel-berlin.de"
+  },
+  "debounceMS": 10000
+}
