@@ -16,7 +16,7 @@ const App: ParentComponent = (props) => {
   return (
     <div class="flex w-screen h-screen bg-stone-800 text-stone-50">
       <NavBar />
-      <main class="min-w-0 flex-col w-full p-4">{props.children}</main>
+      <main class="min-w-0 flex-col w-full">{props.children}</main>
     </div>
   );
 };

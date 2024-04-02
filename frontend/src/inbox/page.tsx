@@ -1,9 +1,12 @@
 import { Component } from "solid-js";
+import { Chat } from "./components/chat";
+import { Details } from "./components/details";
 
 export const InboxPage: Component = () => {
   return (
-    <div>
-      <h1 class="text-2xl">Inbox</h1>
+    <div class="flex h-full w-full py-4">
+      <Chat />
+      <Details />
     </div>
   );
 };

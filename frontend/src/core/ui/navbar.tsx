@@ -11,12 +11,12 @@ const NavLink: ParentComponent<ComponentProps<typeof A>> = (props) => {
       <A
         {...props}
         class={twMerge(
-          "p-5 hover:bg-black/20 text-stone-400 hover:text-stone-50 border-b border-gray-700",
+          "p-4 hover:bg-black/20 text-stone-400 hover:text-stone-50 border-b border-stone-700",
           props.class
         )}
       />
       <div
-        class={twMerge("absolute top-0 w-1 h-full", match() ? "bg-stone-50" : "bg-transparent")}
+        class={twMerge("absolute top-0 w-0.5 h-full", match() ? "bg-stone-50" : "bg-transparent")}
       />
     </div>
   );
@@ -24,7 +24,7 @@ const NavLink: ParentComponent<ComponentProps<typeof A>> = (props) => {
 
 export const NavBar: Component = () => {
   return (
-    <nav class="h-full ml-[1px] border-r border-stone-700 text-2xl">
+    <nav class="h-full ml-[1px] border-r border-stone-700 text-xl">
       <div class="flex flex-col">
         <NavLink href="/inbox" title="Inbox">
           <FaSolidInbox />
