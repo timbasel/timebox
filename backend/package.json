@@ -1,0 +1,10 @@
+{
+  "name": "@timebox/backend",
+  "version": "0.0.1",
+  "description": "The backend server for Timebox",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "if [ -x \"$(command -v air)\" ]; then air; else go run . serve; fi",
+    "build": "go build -o \"../release/timebox_server_${npm_package_version}\""
+  }
+}
