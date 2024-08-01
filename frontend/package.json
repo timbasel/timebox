@@ -1,0 +1,39 @@
+{
+  "name": "@timebox/frontend",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "tauri dev",
+    "dev:android": "tauri android dev -c './src-tauri/tauri.mobile.conf.json'",
+    "build": "tauri build && tauri android build",
+    "tauri": "tauri",
+    "vite:dev": "vite dev",
+    "vite:build": "vite build"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@solidjs/router": "^0.14.1",
+    "@tauri-apps/api": ">=2.0.0-beta.0",
+    "@tauri-apps/plugin-shell": ">=2.0.0-beta.0",
+    "date-fns": "^3.6.0",
+    "pocketbase": "^0.21.4",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.7.8",
+    "tailwind-merge": "^2.4.0"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": ">=2.0.0-beta.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^9.8.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-tailwindcss": "^3.17.4",
+    "internal-ip": "^7.0.0",
+    "postcss": "^8.4.40",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.1",
+    "vite-plugin-solid": "^2.8.0"
+  }
+}

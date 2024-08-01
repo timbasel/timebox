@@ -1,6 +1,6 @@
 {
   "name": "timebox",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A focused time, task & note management system",
   "repository": "git@github.com/timbasel/timebox.git",
   "author": "Tim Basel <tim@basel-berlin.de>",
@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "pnpm run -r dev",
     "build": "pnpm run -r build",
-    "backend": "pnpm -F='@timebox/backend' "
+    "backend": "pnpm -F='@timebox/backend' ",
+    "frontend": "pnpm -F='@timebox/frontend' "
   }
 }
