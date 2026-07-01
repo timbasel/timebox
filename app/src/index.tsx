@@ -5,6 +5,7 @@ import { render } from "solid-js/web";
 
 import "~/style.css";
 import { NavBar } from "~/core/components";
+import { TimerPage } from "~/timer";
 
 const App: ParentComponent = (props) => {
   return (
@@ -18,7 +19,7 @@ const App: ParentComponent = (props) => {
 const Routes: RouteDefinition[] = [
   { path: "/", component: () => <Navigate href="/inbox" /> },
   { path: "/inbox", component: () => "Inbox" },
-  { path: "/timer", component: () => "Timer" },
+  { path: "/timer", component: TimerPage },
 ];
 
 render(() => <Router root={App}>{Routes}</Router>, document.getElementById("root") as HTMLElement);
