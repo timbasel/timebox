@@ -1,0 +1,12 @@
+{
+  "name": "timebox",
+  "version": "0.0.0",
+  "description": "An opinionated time & task management system",
+  "repository": "git@github.com:timbasel/timebox.git",
+  "author": "Tim Basel <tim@basel-berlin.de>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "pnpm run -r dev",
+    "build": "pnpm run -r build"
+  }
+}

@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+@utility debug {
+  outline: 1px solid red;
+}

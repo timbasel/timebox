@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "sortImports": true,
+  "sortTailwindcss": {
+    "functions": ["twMerge"],
+    "stylesheet": "./src/style.css"
+  }
+}

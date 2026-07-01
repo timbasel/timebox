@@ -4,4 +4,4 @@
 
 # Timebox
 
-A focused time, task &amp; note management system
+An opinionated time &amp; task management system
