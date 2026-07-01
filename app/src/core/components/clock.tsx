@@ -16,36 +16,36 @@ export type ClockProps = {
   stroke?: number;
 };
 
-const VIEWBOX = 100;
-const CENTER = VIEWBOX / 2;
+const ViewBox = 100;
+const Center = ViewBox / 2;
 
 export const Clock: Component<ClockProps> = (baseProps) => {
   const props = mergeProps({ stroke: 5, class: "stroke-neutral-50" }, baseProps);
-  const radius = () => (VIEWBOX - props.stroke) / 2;
+  const radius = () => (ViewBox - props.stroke) / 2;
   const circumference = () => 2 * Math.PI * radius();
 
   return (
     <svg
-      viewBox={`0 0 ${VIEWBOX} ${VIEWBOX}`}
+      viewBox={`0 0 ${ViewBox} ${ViewBox}`}
       class="h-full w-full"
       preserveAspectRatio="xMidYMid meet"
     >
-      <g transform={`rotate(-90 ${CENTER} ${CENTER})`}>
+      <g transform={`rotate(-90 ${Center} ${Center})`}>
         <circle
-          cx={CENTER}
-          cy={CENTER}
+          cx={Center}
+          cy={Center}
           r={radius()}
           fill="none"
           stroke-width={props.stroke}
           class="stroke-neutral-800"
         />
         <circle
-          cx={CENTER}
-          cy={CENTER}
+          cx={Center}
+          cy={Center}
           r={radius()}
           fill="none"
           stroke-width={props.stroke}
-          stroke-linecap="round"
+          stroke-linecap="square"
           class={twMerge(props.class, "transition-[stroke-dashoffset] duration-1000 ease-linear")}
           stroke-dasharray={`${circumference()}`}
           stroke-dashoffset={`${circumference() * (1 - props.progress)}`}
@@ -53,21 +53,21 @@ export const Clock: Component<ClockProps> = (baseProps) => {
       </g>
       <Show when={props.label}>
         <text
-          x={CENTER}
-          y={CENTER - 12}
+          x={Center}
+          y={Center - 12}
           text-anchor="middle"
           dominant-baseline="middle"
-          class="fill-neutral-200 text-[6px] tracking-[1px] uppercase"
+          class="fill-neutral-200 text-[6px] font-light tracking-[1px] uppercase"
         >
           {props.label}
         </text>
       </Show>
       <text
-        x={CENTER}
-        y={CENTER + 6}
+        x={Center}
+        y={Center + 6}
         text-anchor="middle"
         dominant-baseline="middle"
-        class="fill-neutral-50 text-[24px] font-light tabular-nums"
+        class="fill-neutral-50 text-[24px] font-extralight tabular-nums"
       >
         {formatTime(props.seconds)}
       </text>

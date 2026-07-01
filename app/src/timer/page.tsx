@@ -1,7 +1,7 @@
 import { FaSolidPlay, FaSolidMugHot, FaSolidStop } from "solid-icons/fa";
 import { Component, createSignal, onCleanup, Show } from "solid-js";
 
-import { Clock } from "~/core/components";
+import { Button, Clock } from "~/core/components";
 
 type Mode = "idle" | "work" | "break";
 
@@ -84,7 +84,7 @@ export const TimerPage: Component = () => {
 
   return (
     <div class="flex h-full flex-col items-center justify-center gap-10">
-      <div class="h-80 max-h-[80%] w-80 max-w-[80%]">
+      <div class="h-100 max-h-[80vmin] w-100 max-w-[80vmin]">
         <Clock seconds={timer()} progress={progress()} label={label()} />
       </div>
 
@@ -92,29 +92,20 @@ export const TimerPage: Component = () => {
         <Show
           when={mode() === "work"}
           fallback={
-            <button
-              onClick={startWork}
-              class="flex items-center gap-2 rounded-lg bg-sky-900 px-6 py-3 font-medium hover:bg-sky-800 active:bg-sky-700"
-            >
-              <FaSolidPlay /> Start work
-            </button>
+            <Button onClick={startWork}>
+              <FaSolidPlay /> Start Work
+            </Button>
           }
         >
-          <button
-            onClick={startBreak}
-            class="flex items-center gap-2 rounded-lg bg-emerald-800 px-6 py-3 font-medium hover:bg-emerald-700 active:bg-emerald-900"
-          >
-            <FaSolidMugHot /> Start break
-          </button>
+          <Button onClick={startBreak}>
+            <FaSolidMugHot /> Start Break
+          </Button>
         </Show>
 
         <Show when={mode() !== "idle"}>
-          <button
-            onClick={reset}
-            class="flex items-center gap-2 rounded-lg bg-neutral-700 px-6 py-3 font-medium hover:bg-neutral-600 active:bg-neutral-800"
-          >
+          <Button onClick={reset}>
             <FaSolidStop /> Reset
-          </button>
+          </Button>
         </Show>
       </div>
     </div>
