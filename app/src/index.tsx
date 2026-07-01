@@ -4,14 +4,18 @@ import { ParentComponent } from "solid-js";
 import { render } from "solid-js/web";
 
 import "~/style.css";
-import { NavBar } from "~/core/components";
+import { NavBar, ResizeHandles, TitleBar } from "~/core/components";
 import { TimerPage } from "~/timer";
 
 const App: ParentComponent = (props) => {
   return (
-    <div class="flex h-screen w-screen bg-neutral-950 text-neutral-200">
-      <NavBar />
-      <main class="grow p-4">{props.children}</main>
+    <div class="flex h-screen w-screen flex-col overflow-hidden bg-neutral-950 text-neutral-200">
+      <ResizeHandles />
+      <TitleBar />
+      <div class="flex min-h-0 grow">
+        <NavBar />
+        <main class="grow p-4">{props.children}</main>
+      </div>
     </div>
   );
 };
