@@ -1,6 +1,7 @@
 import { FaSolidPlay, FaSolidMugHot, FaSolidStop } from "solid-icons/fa";
 import { Component, createSignal, onCleanup, Show } from "solid-js";
 
+import Bell from "@/audio/bell.ogg";
 import { Button, Clock } from "~/core/components";
 
 type Mode = "idle" | "work" | "break";
@@ -17,6 +18,8 @@ export const TimerPage: Component = () => {
   const [mode, setMode] = createSignal<Mode>("idle");
   const [timer, setTimer] = createSignal(0);
   const [breakTotal, setBreakTotal] = createSignal(0);
+
+  const bell = new Audio(Bell);
 
   let interval: ReturnType<typeof setInterval> | undefined;
 
@@ -42,15 +45,20 @@ export const TimerPage: Component = () => {
     setTimer(length);
     setBreakTotal(length);
     interval = setInterval(() => {
-      setTimer((s) => {
-        if (s <= 1) {
-          stopInterval();
-          setMode("idle");
-          return 0;
-        }
-        return s - 1;
-      });
+      const remaining = timer() - 1;
+      if (remaining <= 0) {
+        onBreakEnd();
+        return;
+      }
+      setTimer(remaining);
     }, 1000);
+  };
+
+  const onBreakEnd = () => {
+    bell.currentTime = 0;
+    bell.play();
+
+    startWork();
   };
 
   const reset = () => {
@@ -83,8 +91,8 @@ export const TimerPage: Component = () => {
   };
 
   return (
-    <div class="flex h-full flex-col items-center justify-center gap-10">
-      <div class="h-100 max-h-[80vmin] w-100 max-w-[80vmin]">
+    <div class="flex h-full flex-col items-center justify-center gap-10 overflow-hidden">
+      <div class="h-4/5 max-h-100 w-4/5 max-w-100">
         <Clock seconds={timer()} progress={progress()} label={label()} />
       </div>
 
