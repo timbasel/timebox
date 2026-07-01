@@ -7,13 +7,12 @@
   "license": "UNLICENSED",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
-    "tauri": "tauri",
+    "dev": "tauri dev",
+    "build": "tauri build",
     "fmt": "oxfmt",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "vite": "vite",
+    "tauri": "tauri"
   },
   "dependencies": {
     "@solidjs/router": "^0.16.1",
